@@ -14,8 +14,8 @@ function App() {
   const [bigBet, setBigBet] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-      <Card style={{ margin:"1em" }}>
+      <header className="App-header" style={{ padding:"1em" }}>
+      <Card>
         <Card.Header as="h5" >
           Win How Much?
           <img src={mesos} alt="mesos" style={{ height: "1.3em", marginLeft: "0.3em" }} />
@@ -39,6 +39,11 @@ function App() {
               (isNaN(bigBet) || isNaN(smallBet)) ?
               <Alert key={1} variant={"danger"}>
                 Ensure that both bets are numbers or empty
+              </Alert>
+              :
+              (bigBet > 1000 || smallBet > 1000) ?
+              <Alert key={1} variant={"danger"}>
+                Sure bo? I think bet less than 1000 la, if not buy Toto better
               </Alert>
             :
             <Table striped bordered hover size="sm">
